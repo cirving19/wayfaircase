@@ -3,9 +3,9 @@ This repo contains my solutions to the take-home case study as a part of the int
 
 Each solution includes:
 
-- The original query (found in the .sql file `cirving_wayfair_case_queries`)
+- The SQL query (found in the .sql file `cirving_wayfair_case_queries`)
 - The resulting table in CSV format (found in the corresponding csv files)
-- My written notes explaining my approach (found in the corresponding notes files)
+- My written notes explaining my approach and interpretation (found in the corresponding notes files)
 
 ## Questions Overview
 
