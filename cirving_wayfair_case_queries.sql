@@ -57,16 +57,16 @@ education_levels as (
     unpivot (
       count for education_level in (
         high_school_diploma,
-	      associates_degree,
-	      bachelors_degree,
-	      less_one_year_college,
-	      masters_degree,
-	      one_year_more_college,
-	      less_than_high_school_graduate,
-	      high_school_including_ged,
-	      bachelors_degree_2,
-	      graduate_professional_degree,
-	      some_college_and_associates_degree
+	associates_degree,
+	bachelors_degree,
+	less_one_year_college,
+	masters_degree,
+	one_year_more_college,
+	less_than_high_school_graduate,
+	high_school_including_ged,
+	bachelors_degree_2,
+	graduate_professional_degree,
+	some_college_and_associates_degree
     )
   )
 )
@@ -120,16 +120,16 @@ education_levels as (
     unpivot (
       count for education_level in (
         high_school_diploma,
-	      associates_degree,
-	      bachelors_degree,
-	      less_one_year_college,
-	      masters_degree,
-	      one_year_more_college,
-	      less_than_high_school_graduate,
-	      high_school_including_ged,
-	      bachelors_degree_2,
-	      graduate_professional_degree,
-	      some_college_and_associates_degree
+	associates_degree,
+	bachelors_degree,
+	less_one_year_college,
+	masters_degree,
+	one_year_more_college,
+	less_than_high_school_graduate,
+	high_school_including_ged,
+	bachelors_degree_2,
+	graduate_professional_degree,
+	some_college_and_associates_degree
     )
   )
 )
@@ -148,7 +148,7 @@ education_numeric as (
     when 'some_college_and_associates_degree' then 6
     when 'associates_degree' then 7
     when 'bachelors_degree' then 8
-    when 'bachelors_degree_2' then 8
+    when 'bachelors_degree_2' then 8 --also has a score of 8 because bachelors_degree and bachelors_degree_2 would be the same level of education
     when 'masters_degree' then 9
     when 'graduate_professional_degree' then 10
     else null
@@ -160,5 +160,4 @@ education_numeric as (
 
 --utilizes the total population and numerical education score to calculate and return the correlation between the variables and the percent of variance in education score explained by total population
 select corr(total_pop,education_score) as correlation, pow(corr(total_pop,education_score),2) as variance_explained
-from education_numeric
-where education_score is not null;
+from education_numeric;
