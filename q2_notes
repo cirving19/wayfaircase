@@ -1,0 +1,1 @@
+For question 2, I took the approach of unpivoting the existing data into long form data to better compare the income ranges and education levels. Using the array_agg function paired with the limit and offset functions allowed me to look at only the most common range or level for each zip code so it was easy to pull those into columns in the result table.
