@@ -5,7 +5,7 @@ Each solution includes:
 
 - The original query (found in the .sql file `cirving_wayfair_case_queries`)
 - The resulting table in CSV format (found in the corresponding csv files)
-- My written notes explaining my approach (found in the corresponding text files)
+- My written notes explaining my approach (found in the corresponding notes files)
 
 ## Questions Overview
 
