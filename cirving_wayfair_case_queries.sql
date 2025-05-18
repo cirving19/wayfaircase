@@ -80,9 +80,9 @@ join education_levels e
 on i.geo_id = e.geo_id;
 
 --Q3: Of these zip codes, which had the largest change in population from the 2017 5-year data?
---joins 2018 and 2017 data and calculates the difference between the 2018 population and 2017 population for each zip code in the top ten zipcodes by population
+--joins 2018 and 2017 data and calculates the difference and percent difference between the 2018 population and 2017 population for each zip code in the top ten zipcodes by population
 with pop_change as (
-  select n.geo_id, n.total_pop, o.total_pop, (n.total_pop - o.total_pop) as population_change
+  select n.geo_id, n.total_pop, o.total_pop, (n.total_pop - o.total_pop) as population_change, (n.total_pop - o.total_pop)/o.total_pop as pct_pop_change
   from `bigquery-public-data.census_bureau_acs.zip_codes_2018_5yr` n
   join `bigquery-public-data.census_bureau_acs.zip_codes_2017_5yr` o
   on n.geo_id = o.geo_id
@@ -94,8 +94,8 @@ with pop_change as (
   )
 )
 
---returns zip code and change in population from 2017 to 2018 for the zip code with the largest difference
-select geo_id, population_change
+--returns zip code, change and percent change in population from 2017 to 2018 for the zip code with the largest difference
+select geo_id, population_change, pct_pop_change
 from pop_change
 order by population_change desc
 limit 1;
